@@ -1,0 +1,205 @@
+
+.titulo_assunto {
+  --dourado: #C9A24A;
+  --dourado-claro: #E6C878;
+  --marfim: #EDE6D6;
+  --cinza: #A8A193;
+  --brilho: rgba(201, 162, 74, 0.45);
+
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 28px 48px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  background-color: #0B0B0C;
+  color: var(--marfim);
+  font-family: "Barlow", system-ui, sans-serif;
+}
+
+/* ===== Cor de cada assunto (precisa do assunto no className) ===== */
+.titulo_assunto.sobremim     { --brilho: rgba(201, 162, 74, 0.45); }  /* dourado */
+.titulo_assunto.projetos     { --brilho: rgba(127, 166, 201, 0.45); } /* azul */
+.titulo_assunto.experiencias { --brilho: rgba(158, 27, 34, 0.55); }   /* vermelho */
+.titulo_assunto.contato      { --brilho: rgba(61, 220, 132, 0.35); }  /* verde */
+
+/* ===== Brilho atrás do círculo ===== */
+.titulo_assunto::before {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: 8%;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background-color: var(--brilho);
+  filter: blur(90px);
+  transition: background-color 0.5s ease;
+  pointer-events: none;
+}
+
+/* ===== Círculo de íris com anéis ===== */
+.titulo_assunto::after {
+  content: "";
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  border: 2px dashed rgba(201, 162, 74, 0.45);
+  background: repeating-radial-gradient(
+    circle,
+    transparent 0 150px,
+    rgba(201, 162, 74, 0.35) 151px 152px,
+    transparent 153px 210px
+  );
+  animation: girar 60s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* o conteúdo fica na frente do círculo */
+.titulo_assunto > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Topo: nome e curso (header .titulo) ===== */
+.titulo_assunto .titulo h2 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.titulo_assunto .titulo h3 {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--cinza);
+}
+
+/* ===== Texto principal (.texto) ===== */
+.titulo_assunto .texto {
+  margin-top: auto;           /* empurra o texto e as pastas pra baixo */
+  max-width: 720px;
+}
+
+/* 1º <p> do .texto = a frase ("Operação Identidade") */
+.titulo_assunto .texto p:first-child {
+  margin: 0 0 12px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 19px;
+  color: var(--dourado);
+}
+
+.titulo_assunto .texto h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-weight: 700;
+  line-height: 0.95;
+  font-size: clamp(56px, 9vw, 128px);
+  color: #F4EEDF;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* último <p> do .texto = a descrição */
+.titulo_assunto .texto p:last-child {
+  margin: 16px 0 0;
+  max-width: 34ch;
+  font-size: 22px;
+  line-height: 1.45;
+  color: #CFC8B8;
+}
+
+/* ===== Pastas (.pastas, os 4 links) ===== */
+.titulo_assunto .pastas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.titulo_assunto .pastas p {
+  margin: 0;
+}
+
+.titulo_assunto .pastas a {
+  display: flex;
+  align-items: flex-end;
+  min-height: 130px;
+  padding: 18px 20px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Bodoni Moda", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--marfim);
+  background: linear-gradient(170deg, #1E1E24 0%, #121215 100%);
+  border: 1px solid #34343C;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* pasta selecionada: o link cujo endereço combina com o assunto atual */
+.titulo_assunto.sobremim a[href="/sobremim"],
+.titulo_assunto.projetos a[href="/projetos"],
+.titulo_assunto.experiencias a[href="/experiencias"],
+.titulo_assunto.contato a[href="/contato"] {
+  background: linear-gradient(170deg, #E9D9A8 0%, var(--dourado) 100%);
+  color: #0B0B0C;
+  border-color: #F4E3B0;
+  transform: translateY(-14px);
+}
+
+.titulo_assunto .pastas a:focus-visible {
+  outline: 3px solid var(--dourado-claro);
+  outline-offset: 4px;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 760px) {
+  .titulo_assunto {
+    padding: 20px 20px 28px;
+  }
+  .titulo_assunto .pastas {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .titulo_assunto .pastas a {
+    min-height: 90px;
+    font-size: 22px;
+  }
+  .titulo_assunto::before,
+  .titulo_assunto::after {
+    width: 360px;
+    height: 360px;
+    right: -120px;
+  }
+}
+
+.titulo_assunto .notebook {
+  position: absolute;
+  width: 420px;
+  right: calc(2% + 110px);
+  top: calc(2% + 154px);
+  z-index: 0;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.8))
+          drop-shadow(0 0 30px rgba(201, 162, 74, 0.25));
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .titulo_assunto .notebook {
+    width: 240px;
+    right: -60px;
+    top: calc(2% + 85px);
+  }
+}
