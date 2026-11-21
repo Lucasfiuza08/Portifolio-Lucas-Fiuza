@@ -1,0 +1,101 @@
+
+.cabecalho {
+  position: sticky;           
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 14px 40px;
+  background: rgba(8, 8, 10, 0.88);
+  backdrop-filter: blur(8px);  /* desfoca o que passa por trás */
+  border-bottom: 1px solid #34343C;
+  font-family: "Barlow", system-ui, sans-serif;
+}
+
+/* ===== Nome à esquerda (link pra Home) ===== */
+.cabecalho-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  color: #EDE6D6;
+  padding: 4px 0;
+}
+
+.cabecalho-voltar {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 14px;
+  color: #A8A193;
+}
+
+.cabecalho-nome {
+  font-family: "Bodoni Moda", serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cabecalho-marca:hover .cabecalho-voltar {
+  color: #E6C878;
+}
+
+/* ===== Links do menu ===== */
+.cabecalho nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cabecalho nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;            
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #EDE6D6;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.cabecalho nav a:hover {
+  color: #E6C878;
+  border-bottom-color: #C9A24A;
+}
+
+.cabecalho nav a.active {
+  color: #0B0B0C;
+  background: #C9A24A;
+  border-bottom-color: #C9A24A;
+  font-weight: 600;
+}
+
+.cabecalho a:focus-visible {
+  outline: 3px solid #E6C878;
+  outline-offset: 3px;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 760px) {
+  .cabecalho {
+    padding: 12px 16px;
+  }
+  .cabecalho nav {
+    width: 100%;
+    overflow-x: auto;          
+    flex-wrap: nowrap;
+  }
+  .cabecalho nav a {
+    font-size: 16px;
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cabecalho nav a { transition: none; }
+}
