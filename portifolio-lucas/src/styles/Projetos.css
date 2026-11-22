@@ -1,0 +1,240 @@
+.proj {
+  --dourado: #C9A24A;
+  --dourado-claro: #E6C878;
+  --marfim: #F4EEDF;
+  --cinza: #A8A193;
+
+  min-height: calc(100vh - 73px);
+  display: flex;
+  flex-direction: column;
+  background: #050506;
+  color: var(--marfim);
+  font-family: "Barlow", system-ui, sans-serif;
+}
+
+.proj-faixa {
+  height: 48px;
+  background: #000;
+}
+
+.proj-cena {
+  position: relative;
+  flex: 1;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.proj-imagem {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 64%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #17171C;
+  background-image: repeating-linear-gradient(45deg, rgba(201, 162, 74, 0.05) 0 2px, transparent 2px 16px);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 17px;
+  color: #6E6A60;
+}
+
+.proj-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proj-cena::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #050506 0%, #050506 34%, rgba(5, 5, 6, 0.85) 46%, rgba(5, 5, 6, 0.1) 75%, rgba(5, 5, 6, 0.4) 100%),
+    radial-gradient(ellipse at 20% 50%, rgba(201, 162, 74, 0.10) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.proj-texto {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 92%);
+  padding: 64px 0 56px 64px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.proj-contador {
+  margin: 0;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 16px;
+  color: var(--dourado);
+}
+
+.proj-texto h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(52px, 7vw, 104px);
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.proj-frase {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #CFC8B8;
+}
+
+.proj-descricao {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #CFC8B8;
+}
+
+.proj-tecnologias {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--cinza);
+}
+
+.proj-tecnologias span {
+  color: var(--dourado-claro);
+}
+
+.proj-botao {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 32px;
+  background: var(--dourado);
+  color: #0B0B0C;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.proj-botao:hover {
+  background: var(--dourado-claro);
+  color: #0B0B0C;
+}
+
+.proj-privado {
+  align-self: flex-start;
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px dashed #4A4636;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 15px;
+  color: var(--cinza);
+}
+
+.proj-botao:focus-visible,
+.proj-quadro:focus-visible {
+  outline: 3px solid var(--dourado-claro);
+  outline-offset: 3px;
+}
+
+.proj-pelicula {
+  background: #000;
+  padding: 16px 0 20px;
+}
+
+.proj-furos {
+  height: 14px;
+  background-image: radial-gradient(circle, #2A2A30 4px, transparent 5px);
+  background-size: 30px 14px;
+  background-position: 8px 0;
+}
+
+.proj-quadros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px 40px;
+}
+
+.proj-quadro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 96px;
+  padding: 14px 16px;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  color: #EDE6D6;
+  background: #141418;
+  box-shadow: inset 0 0 0 1px #2A2A30;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.proj-quadro:hover {
+  opacity: 1;
+}
+
+.proj-quadro.ativo {
+  opacity: 1;
+  background: linear-gradient(180deg, #2A2618 0%, #1A170E 100%);
+  box-shadow: inset 0 0 0 2px var(--dourado);
+}
+
+.proj-quadro-num {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 13px;
+  color: #6E6A60;
+}
+
+.proj-quadro.ativo .proj-quadro-num {
+  color: var(--dourado-claro);
+}
+
+.proj-quadro-nome {
+  font-family: "Bodoni Moda", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (max-width: 860px) {
+  .proj-cena {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .proj-imagem {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  .proj-cena::after {
+    display: none;
+  }
+  .proj-texto {
+    width: 100%;
+    padding: 28px 20px 36px;
+  }
+  .proj-quadros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px 16px;
+  }
+}

@@ -2,16 +2,18 @@ import { useState } from "react";
 import foto from "../assets/foto-lucas.jpg";
 import "../styles/SobreMim.css";
 const evidencias = [
-    { sigla: "Jv",  nome: "Java",         descricao: "Linguagem principal da faculdade. Orientação a objetos e UML.", usado: "projeto XAVi, exercícios de POO" },
-    { sigla: "JS",  nome: "JavaScript",   descricao: "Front-end sem framework e base para o React.",                  usado: "CRUD de produtos" },
-    { sigla: "Re",  nome: "React",        descricao: "Em aprendizado: este portfólio é o primeiro projeto com ele.",  usado: "este portfólio" },
-    { sigla: "Nd",  nome: "Node.js",      descricao: "API REST com Express.",                                         usado: "CRUD de produtos" },
-    { sigla: "H/C", nome: "HTML e CSS",   descricao: "A base de todas as páginas que construo.",                      usado: "DoAção, este portfólio" },
-    { sigla: "Git", nome: "Git e GitHub", descricao: "Versionamento, sozinho e em grupo.",                            usado: "todos os projetos" },
+    { sigla: "Jv",  nome: "Java",         descricao: "Linguagem principal da faculdade: orientação a objetos e UML.",  usado: "projeto XAVi, exercícios de POO" },
+    { sigla: "JS",  nome: "JavaScript",   descricao: "Front-end e back-end, e a base para o React.",                     usado: "catálogo de produtos, CRUD" },
+    { sigla: "Py",  nome: "Python",       descricao: "Lógica e jogos com Pygame, com testes em Pytest.",                  usado: "jogo Ecos do Passado" },
+    { sigla: "Re",  nome: "React",        descricao: "Em aprendizado: este portfólio é o primeiro projeto com ele.",      usado: "este portfólio, catálogo de produtos" },
+    { sigla: "Nd",  nome: "Node.js",      descricao: "APIs REST com Express.",                                           usado: "CRUD de produtos" },
+    { sigla: "H/C", nome: "HTML e CSS",   descricao: "A base de todas as páginas que construo.",                         usado: "DoAção, este portfólio" },
+    { sigla: "SQL", nome: "SQL",          descricao: "Em aprendizado: bancos de dados relacionais.",                     usado: "aulas da faculdade" },
+    { sigla: "Dk",  nome: "Docker",       descricao: "Contêineres para rodar aplicações e bancos de dados.",             usado: "laboratório de Spring MVC" },
+    { sigla: "Git", nome: "Git e GitHub", descricao: "Versionamento, sozinho e em grupo.",                               usado: "todos os projetos" },
 ];
 
-// Inclinação de cada cartão de evidência (só visual).
-const inclinacoes = [-3, 2, -1.5, 2.5, -2, 1.5];
+const inclinacoes = [-3, 2, -1.5, 2.5, -2, 1.5, -2.5, 1, -1];
 
 function Sobre(){
         const [selecionada, setSelecionada] = useState(0);
@@ -61,8 +63,8 @@ function Sobre(){
                                 <dd>Desenvolvimento de software</dd>
                                 <dt>Objetivo</dt>
                                 <dd>Estudar, estagiar ou trabalhar no exterior</dd>
-                                <dt>Missão</dt>
-                                <dd>Primeiro estágio em desenvolvimento</dd>
+                                <dt>Cidade</dt>
+                                <dd>Belo Horizonte, MG</dd>
                             </dl>
                             <span className="sobre-carimbo" aria-hidden="true">CONFIDENCIAL</span>
                         </div>
@@ -94,7 +96,6 @@ function Sobre(){
                         </p>
                     </section>
 
-                    {/* Coluna de anotações */}
                     <div className="sobre-notas">
                         <div className="sobre-postit">
                             <span>Missão atual:</span>
@@ -116,7 +117,6 @@ function Sobre(){
                         </div>
                     </div>
 
-                    {/* Evidências: tecnologias */}
                     <section className="sobre-evidencias" aria-label="Evidências: o equipamento">
                         <div className="sobre-evidencias-titulo">
                             <h2>Evidências: o equipamento</h2>
