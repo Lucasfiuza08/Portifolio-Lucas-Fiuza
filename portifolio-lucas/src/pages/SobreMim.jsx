@@ -13,11 +13,31 @@ const evidencias = [
     { sigla: "Git", nome: "Git e GitHub", descricao: "Versionamento, sozinho e em grupo.",                               usado: "todos os projetos" },
 ];
 
+const bio = {
+    pt: {
+        titulo: "Relatório pessoal",
+        paragrafos: [
+            "Jogo videogame desde os 5 anos, e desde pequeno sempre gostei de mexer em tecnologia: computador, console, celular. Mais do que usar, eu queria entender como tudo aquilo funcionava por dentro. Essa curiosidade me trouxe para a Engenharia de Software na PUC Minas, onde estou no 2º período.",
+            "No estágio de TI na Fiúza Perdigão Engenharia, ajudei na produção de protótipos e aprendi na prática com a equipe de desenvolvimento. Foi lá que percebi o que mais gosto nessa área: trabalhar em equipe e aprender algo novo a cada projeto. Na faculdade, já construí um CRUD com Node.js, um sistema em Java em grupo e um site sobre doação de sangue. Este portfólio é meu primeiro projeto em React.",
+            "Nunca fiz curso de inglês fora da escola. Estudei no Colégio Loyola praticamente a vida toda, onde minha mãe é professora de inglês. Ela me ensinou muito quando eu era pequeno e até hoje me ajuda quando surge uma dúvida. Mas foi jogando que aprendi a maior parte. Aos 12 anos, passei uma semana nos Estados Unidos e pude usar tudo isso na prática. Agora quero ir além: meu objetivo é conseguir uma oportunidade de estudo, estágio ou trabalho fora do país.",
+        ],
+    },
+    en: {
+        titulo: "Personal report",
+        paragrafos: [
+            "I've been playing video games since I was 5, and ever since I was a kid I loved tinkering with technology: computers, consoles, phones. More than just using them, I wanted to understand how they worked under the hood. That curiosity brought me to Software Engineering at PUC Minas, where I'm in my second semester.",
+            "During my IT internship at Fiúza Perdigão Engenharia, I helped build prototypes and learned hands-on from the development team. That's where I found what I enjoy most about this field: working as a team and learning something new with every project. At university, I've built a CRUD app with Node.js, a Java system as part of a group, and a website about blood donation. This portfolio is my first React project.",
+            "I never took English classes outside of school. I studied at Colégio Loyola for almost my whole life, where my mom is an English teacher. She taught me a lot when I was little and still helps me whenever I have a question. But I learned most of it by playing games. When I was 12, I spent a week in the United States and got to put it all into practice. Now I want to take the next step: my goal is to land a study, internship, or work opportunity abroad.",
+        ],
+    },
+};
+
 const inclinacoes = [-3, 2, -1.5, 2.5, -2, 1.5, -2.5, 1, -1];
 
 function Sobre(){
         const [selecionada, setSelecionada] = useState(0);
         const [abertura, setAbertura] = useState(true);
+        const [idioma, setIdioma] = useState("pt");
         const atual = evidencias[selecionada];
 
         if (abertura) {
@@ -72,28 +92,14 @@ function Sobre(){
 
                     <section className="sobre-papel sobre-relatorio" aria-label="Relatório pessoal">
                         <span className="sobre-alfinete" aria-hidden="true"></span>
-                        <h2>Relatório pessoal</h2>
-                        <p>
-                            Jogo videogame desde os 5 anos, e desde pequeno sempre gostei de mexer em tecnologia:
-                            computador, console, celular. Mais do que usar, eu queria entender como tudo aquilo
-                            funcionava por dentro. Essa curiosidade me trouxe para a Engenharia de Software na
-                            PUC Minas, onde estou no 2º período.
-                        </p>
-                        <p>
-                            No estágio de TI na Fiúza Perdigão Engenharia, ajudei na produção de protótipos e
-                            aprendi na prática com a equipe de desenvolvimento. Foi lá que percebi o que mais
-                            gosto nessa área: trabalhar em equipe e aprender algo novo a cada projeto. Na
-                            faculdade, já construí um CRUD com Node.js, um sistema em Java em grupo e um site
-                            sobre doação de sangue. Este portfólio é meu primeiro projeto em React.
-                        </p>
-                        <p>
-                            Nunca fiz curso de inglês fora da escola. Estudei no Colégio Loyola praticamente a
-                            vida toda, onde minha mãe é professora de inglês. Ela me ensinou muito quando eu era
-                            pequeno e até hoje me ajuda quando surge uma dúvida. Mas foi jogando que aprendi a
-                            maior parte. Aos 12 anos, passei uma semana nos Estados Unidos e pude usar tudo isso
-                            na prática. Agora quero ir além: meu objetivo é conseguir uma oportunidade de estudo,
-                            estágio ou trabalho fora do país.
-                        </p>
+                        <div className="sobre-idioma">
+                            <button type="button" className={idioma === "pt" ? "ativo" : ""} onClick={() => setIdioma("pt")}>PT</button>
+                            <button type="button" className={idioma === "en" ? "ativo" : ""} onClick={() => setIdioma("en")}>EN</button>
+                        </div>
+                        <h2>{bio[idioma].titulo}</h2>
+                        {bio[idioma].paragrafos.map((texto) => (
+                            <p key={texto}>{texto}</p>
+                        ))}
                     </section>
 
                     <div className="sobre-notas">
