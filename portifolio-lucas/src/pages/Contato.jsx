@@ -1,30 +1,19 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import "../styles/Contato.css";
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const canais = [
-    { rotulo: "E-mail",   valor: "[seuemail@exemplo.com]",        link: "mailto:[seuemail@exemplo.com]" },
+    { rotulo: "E-mail",   valor: "lucasfiuzaalmeida@gmail.com",   link: "mailto:lucasfiuzaalmeida@gmail.com" },
     { rotulo: "LinkedIn", valor: "linkedin.com/in/lucas-fiúza",    link: "https://www.linkedin.com/in/lucas-fi%C3%BAza-353b7b40a/" },
     { rotulo: "GitHub",   valor: "github.com/Lucasfiuza08",        link: "https://github.com/Lucasfiuza08" },
-    { rotulo: "WhatsApp", valor: "[seu número]",                   link: "https://wa.me/55[seunumero]" },
 ];
 
 function Contato(){
     const [virado, setVirado] = useState(false);
-    const [envio, setEnvio] = useState("escrevendo");
-    const formulario = useRef(null);
+    const [enviado, setEnviado] = useState(false);
 
     function enviar(evento){
         evento.preventDefault();
-        setEnvio("enviando");
-
-        emailjs
-            .sendForm(SERVICE_ID, TEMPLATE_ID, formulario.current, { publicKey: PUBLIC_KEY })
-            .then(() => setEnvio("enviado"))
-            .catch(() => setEnvio("erro"));
+        setEnviado(true);
     }
 
     return(
@@ -80,19 +69,19 @@ function Contato(){
                 </section>
 
                 <section className="cont-carta-area" aria-label="Escrever uma carta" aria-live="polite">
-                    {envio === "enviado" ? (
+                    {enviado ? (
                         <div className="cont-enviada">
                             <div className="cont-envelope" aria-hidden="true">
                                 <span className="cont-selo">LF</span>
                             </div>
                             <h2>Carta lacrada e enviada</h2>
                             <p>Recebi sua mensagem. Respondo em até 2 dias no e-mail que você informou.</p>
-                            <button type="button" className="cont-botao-linha" onClick={() => setEnvio("escrevendo")}>
+                            <button type="button" className="cont-botao-linha" onClick={() => setEnviado(false)}>
                                 Escrever outra carta
                             </button>
                         </div>
                     ) : (
-                        <form ref={formulario} className="cont-carta" onSubmit={enviar}>
+                        <form className="cont-carta" onSubmit={enviar}>
                             <p className="cont-para">Para: Agente Lucas Fiúza</p>
 
                             <label className="cont-linha">
@@ -108,17 +97,12 @@ function Contato(){
                                 <textarea name="mensagem" rows="5" placeholder="Escreva aqui" required></textarea>
                             </label>
 
-                            {envio === "erro" && (
-                                <p className="cont-erro">
-                                    Não foi possível enviar agora. Tente de novo ou me chame pelo e-mail do cartão.
-                                </p>
-                            )}
 
                             <div className="cont-assinatura">
                                 <span>Atenciosamente,</span>
-                                <button type="submit" className="cont-lacrar" disabled={envio === "enviando"}>
+                                <button type="submit" className="cont-lacrar">
                                     <span className="cont-selo pequeno" aria-hidden="true">LF</span>
-                                    {envio === "enviando" ? "Enviando..." : "Lacrar e enviar"}
+                                    Lacrar e enviar
                                 </button>
                             </div>
                         </form>
