@@ -3,17 +3,23 @@
 
 Portfólio pessoal desenvolvido para o Trabalho Prático 1 da PUC Minas. O site apresenta quem eu sou, meus projetos, minhas experiências e formas de contato, com uma identidade visual inspirada em agências de espionagem: cada página é um "arquivo" com um estilo próprio.
 
-**Site publicado:** [COLE AQUI O LINK DO VERCEL]
+**Site publicado:** [portifolio-lucas-fiuza.vercel.app](https://portifolio-lucas-fiuza.vercel.app/)
+
+**Wireframe (Figma):** [https://www.figma.com/design/lrJPnMNRIhbK1FPuWPdCfE](https://www.figma.com/design/lrJPnMNRIhbK1FPuWPdCfE)
 
 ## Páginas
 
-| Rota              | Página       | Descrição                                                                                                       |
-| ----------------- | ------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `/`             | Base          | Tela de seleção com as quatro seções. O título, a descrição e o brilho mudam ao passar o mouse.            |
-| `/sobremim`     | Sobre mim     | Abertura em vídeo, dossiê com foto, bio em português e inglês e as tecnologias como "evidências" clicáveis. |
-| `/projetos`     | Projetos      | Projetos do mais antigo ao mais recente, com descrição, tecnologias, imagem e link do GitHub.                   |
-| `/experiencias` | Experiências | Experiências como "missões", com objetivos, recompensas e filtro por status.                                    |
-| `/contato`      | Contato       | Cartão de visita que vira, com links clicáveis, e formulário que envia e-mail pelo EmailJS.                    |
+| Rota              | Página       | Descrição                                                                                                                                          |
+| ----------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`             | Base          | Tela de seleção com as quatro seções. O título, a descrição e o brilho mudam ao passar o mouse.                                               |
+| `/sobremim`     | Sobre mim     | Abertura em vídeo, dossiê com foto, bio em português e inglês e as tecnologias como "evidências" clicáveis.                                    |
+| `/projetos`     | Projetos      | Três projetos (Ecos do Passado, DoAção e este portfólio), do mais antigo ao mais recente, com descrição, tecnologias, imagem e link do GitHub. |
+| `/experiencias` | Experiências | Experiências como "missões", com objetivos, recompensas e filtro por status.                                                                       |
+| `/contato`      | Contato       | Cartão de visita que vira, com links clicáveis, e formulário que envia e-mail pelo EmailJS.                                                       |
+
+## Wireframe
+
+O planejamento das telas foi feito em um wireframe de média fidelidade no Figma, com as cinco páginas do site (Home, Sobre mim, Projetos, Experiências e Contato), a posição de cada elemento e as principais interações.
 
 ## Tecnologias
 
@@ -23,6 +29,7 @@ Portfólio pessoal desenvolvido para o Trabalho Prático 1 da PUC Minas. O site 
 - **EmailJS**: envio de e-mail pelo formulário de contato, sem back-end
 - **CSS puro**: um arquivo de estilo por página
 - **Google Fonts**: Bodoni Moda, Barlow, Barlow Condensed, Share Tech Mono, Special Elite e Caveat
+- **Figma**: wireframe das telas
 - **Vercel**: hospedagem gratuita
 
 ## Dependências
@@ -49,7 +56,7 @@ portifolio-lucas/
     ├── App.jsx             # Definição das rotas
     ├── Header.jsx          # Menu das páginas internas
     ├── index.css           # Estilos globais
-    ├── assets/             # Imagens (foto, notebook e prints dos projetos)
+    ├── assets/             # Imagens (foto, notebook e print do jogo)
     ├── pages/
     │   ├── Layout.jsx      # Header + Outlet para as páginas com menu
     │   ├── Home.jsx
