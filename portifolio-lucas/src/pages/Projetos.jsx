@@ -19,14 +19,6 @@ const projetos = [
         imagem: null,
     },
     {
-        nome: "[Projeto de vacinação]",
-        frase: "[Uma frase curta sobre o projeto.]",
-        descricao: "[Descreva o que o projeto faz e qual foi a sua parte.]",
-        tecnologias: ["[Tecnologia 1]", "[Tecnologia 2]"],
-        link: null,
-        imagem: null,
-    },
-    {
         nome: "Este portfólio",
         frase: "A operação em andamento.",
         descricao: "Meu primeiro projeto em React, com rotas, estado e um visual de agência secreta. Cada página tem um estilo próprio.",
