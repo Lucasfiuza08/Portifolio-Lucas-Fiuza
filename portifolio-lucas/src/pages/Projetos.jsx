@@ -8,7 +8,6 @@ const projetos = [
         descricao: "Jogo feito em grupo na disciplina de Algoritmos. O jogador é um detetive que vira cartas de evidências, suspeitos e motivos procurando pares lógicos. Cada par certo revela um pedaço da história, e cada fase tem um cenário diferente: mansão, trem e Londres.",
         tecnologias: ["Python", "Pygame", "Pytest"],
         link: "https://github.com/Lucasfiuza08/jogo-Ecos-do-passado",
-        imagem: null,
     },
     {
         nome: "DoAção",
@@ -16,7 +15,6 @@ const projetos = [
         descricao: "Site feito em grupo para facilitar a doação de sangue, construído a partir de entrevistas com doadores. [Descreva a sua parte no projeto.]",
         tecnologias: ["HTML", "CSS", "JavaScript"],
         link: "https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2026-2-ti2-7587100-doacao",
-        imagem: null,
     },
     {
         nome: "Este portfólio",
@@ -24,7 +22,6 @@ const projetos = [
         descricao: "Meu primeiro projeto em React, com rotas, estado e um visual de agência secreta. Cada página tem um estilo próprio.",
         tecnologias: ["React", "Vite", "React Router"],
         link: "https://github.com/Lucasfiuza08/Portifolio-Lucas-Fiuza",
-        imagem: null,
     },
 ];
 
@@ -37,13 +34,6 @@ function Projetos(){
             <div className="proj-faixa" aria-hidden="true"></div>
 
             <section className="proj-cena" aria-live="polite">
-                <div className="proj-imagem">
-                    {atual.imagem ? (
-                        <img src={atual.imagem} alt={"Tela do projeto " + atual.nome} />
-                    ) : (
-                        <span>[Print ou GIF de {atual.nome}]</span>
-                    )}
-                </div>
 
                 <div className="proj-texto">
                     <p className="proj-contador">

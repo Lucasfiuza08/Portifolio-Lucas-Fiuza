@@ -26,28 +26,6 @@
   overflow: hidden;
 }
 
-.proj-imagem {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 64%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #17171C;
-  background-image: repeating-linear-gradient(45deg, rgba(201, 162, 74, 0.05) 0 2px, transparent 2px 16px);
-  font-family: "Share Tech Mono", monospace;
-  font-size: 17px;
-  color: #6E6A60;
-}
-
-.proj-imagem img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .proj-cena::after {
   content: "";
   position: absolute;
@@ -61,7 +39,7 @@
 .proj-texto {
   position: relative;
   z-index: 1;
-  width: min(640px, 92%);
+  width: min(900px, 92%);
   padding: 64px 0 56px 64px;
   box-sizing: border-box;
   display: flex;
@@ -220,11 +198,6 @@
   .proj-cena {
     flex-direction: column;
     align-items: stretch;
-  }
-  .proj-imagem {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
   }
   .proj-cena::after {
     display: none;
